@@ -1,13 +1,13 @@
-const gulp = require("gulp")
+const gulp = require("gulp");
 const plumber = require('gulp-plumber');
-const sass = require("gulp-sass")
-const autoprefixer = require('gulp-autoprefixer')
-const concat = require('gulp-concat')
-const cleanCSS = require('gulp-clean-css')
-const uglify = require('gulp-uglify')
+const sass = require("gulp-sass");
+const autoprefixer = require('gulp-autoprefixer');
+const concat = require('gulp-concat');
+const cleanCSS = require('gulp-clean-css');
+const uglify = require('gulp-uglify');
 const pipeline = require('readable-stream').pipeline;
-const del = require('del')
-const browserSync = require("browser-sync").create()
+const del = require('del');
+const browserSync = require("browser-sync").create();
 
 sass.compiler = require('node-sass')
 

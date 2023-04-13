@@ -1,0 +1,158 @@
+$lightGreen: #E7F5E0;
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* general */
+.d-flex {
+    display: flex;
+}
+.align-items-center {
+    align-items: center;
+}
+.justify-content-center {
+    justify-content: center;
+}
+.justify-content-between {
+    justify-content: space-between;
+}
+.justify-content-around {
+    justify-content: space-around;
+}
+
+/* typography */
+a {
+    text-decoration: none;
+    color: #B40140;
+    transition: all 0.3s;
+    &:hover {
+        color: #ED6283;
+    }
+}
+h1 {
+    font-weight: 700;
+}
+h2,
+h3,
+.h3,
+h4 {
+    font-weight: 800;
+}
+
+.green {
+    color: #2B620F;
+}
+.blue {
+    color: #0C629A;
+}
+.white {
+    color: #ffffff;
+}
+
+@media (max-width: 767px) {
+    body {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    h1 {
+        font-size: 24px;
+        line-height: 1.3;
+    }
+    h2 {
+        font-size: 22px;
+        line-height: 1.36;
+    }
+    h3,
+    .h3 {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+    h4 {
+        font-size: 18px;
+        line-height: 1.3;
+    }
+    h5 {
+        font-size: 16px;
+        line-height: 1.5;
+        font-weight: 800;
+    }
+    p.large {
+        font-size: 16px;
+        line-height: 1.375;
+    }
+}
+@media (min-width: 768px) {
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    h1 {
+        font-size: 50px;
+        line-height: 1.1;
+    }
+    h2 {
+        font-size: 38px;
+        line-height: 1.2;
+    }
+    h3,
+    .h3 {
+        font-size: 28px;
+        line-height: 1.14;
+    }
+    h4 {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+    h5 {
+        font-size: 18px;
+        line-height: 1.4;
+        font-weight: 700;
+    }
+    p.large {
+        font-size: 18px;
+        line-height: 1.44;
+    }
+    p.small {
+        font-size: 12px;
+        line-height: 2.1;
+    }
+}
+
+/* button */
+.button {
+    height: 45px;
+    padding-left: 23px;
+    padding-right: 23px;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 23px;
+    border: 1px solid #F0AD4E;
+    background-color: #F0AD4E;
+    transition: all 0.3s;
+    font-weight: 600;
+    color: #2E353A;
+    font-size: 18px;
+    &:hover {
+        color: #2E353A;
+        background-color: #FACF92;
+    }
+}
+
+/* footer */
+.footer {
+    position: relative;
+    background-color: $lightGreen;
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 95px;
+        border: 1px solid red;
+        background-color: orange;
+        transform: matrix(1, 0, 0, -1, 0, 0);
+    }
+}
