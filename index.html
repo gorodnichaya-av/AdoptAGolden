@@ -15,7 +15,7 @@
     <header class="header">
         <div class="container">
             <div class="d-flex justify-content-between">
-                <a href="index.html" class="logo">
+                <a href="/index.html" class="logo">
                     <img src="img/logo.svg" alt="Adopt a Golden">
                 </a>
     
@@ -140,10 +140,10 @@
     <div class="misson">
         <div class="container">
             <div class="image-text-block">
-                <div>
+                <div class="image-text-block__img">
                     <img src="img/mission.png" alt="Our Mission">
                 </div>
-                <div>
+                <div class="image-text-block__text">
                     <h2 class="blue">Our Mission</h2>
                     <p>
                         Our mission is to find safe, loving, lifelong homes 
@@ -157,11 +157,11 @@
 
     <div class="what-we-do green-bg">
         <div class="container">
-            <div class="image-text-block image-text-block--reverce">
-                <div>
+            <div class="image-text-block image-text-block--reverse">
+                <div class="image-text-block__img">
                     <img src="img/we-do.png" alt="What We Do">
                 </div>
-                <div>
+                <div class="image-text-block__text">
                     <h2 class="green">What We Do</h2>
                     <p>
                         AGB accepts dogs from Birmingham and the surrounding areas. 
@@ -171,7 +171,7 @@
                         neutered if necessary, receive heartworm treatment and 
                         are treated for any other medical issues that are needed.
                     </p>
-                    <a href="#" class="learn-more-link">Learn More</a>
+                    <a href="#" class="learn-more-link js-link-arrow-right">Learn More</a>
                 </div>
             </div>
         </div>
@@ -179,8 +179,10 @@
 
     <div class="how-you-can-help">
         <div class="container">
-            <h2 class="blue headline-star">How You Can Help</h2>
-            <div class="how-you-can-help_content">
+            <div class="text-center">
+                <h2 class="blue headline-star">How You Can Help</h2>
+            </div>
+            <div class="how-you-can-help__content">
                 <div class="how-you-can-help__item">
                     <div class="how-you-can-help__img">
                         <img src="img/how-help/donate.png" srcset="img/how-help/donate@2x.png 2x, img/how-help/donate@3x.png 3x" alt="Donate">
@@ -216,7 +218,7 @@
                 </div>
                 <div class="how-you-can-help__item">
                     <div class="how-you-can-help__img">
-                        <img src="img/how-help/donate.png" srcset="img/how-help/donate@2x.png 2x, img/how-help/donate@3x.png 3x" alt="Donate">
+                        <img src="img/how-help/community-events.png" srcset="img/how-help/community-events@2x.png 2x, img/how-help/community-events@3x.png 3x" alt="Donate">
                     </div>
                     <div class="how-you-can-help__text">
                         <h3 class="blue">Community Events</h3>
@@ -238,8 +240,8 @@
 
     <div class="recent-adoptions">
         <div class="container">
-            <h2 class="blue">Recent Adoptions</h2>
-            <div class="js-slider recent-adoptions__slider">
+            <h2 class="blue headline-star mobile-hidden">Recent Adoptions</h2>
+            <div class="js-slider recent-adoptions__slider mobile-hidden">
                 <div>
                     <div class="recent-adoptions__item">
                         <img src="img/recent-adoptions/slide1.png" alt="">
@@ -296,7 +298,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> 
+            <a class="view-all-link js-link-arrow-right" href="/adoptions.html">View all recent adoptions</a>
         </div>
     </div>
 

@@ -8,13 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="js/slick/slick.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header class="header">
         <div class="container">
             <div class="d-flex justify-content-between">
-                <a href="index.html" class="logo">
+                <a href="/index.html" class="logo">
                     <img src="img/logo.svg" alt="Adopt a Golden">
                 </a>
     
@@ -22,7 +23,7 @@
                     <ul>
                         <li><a href="/volunteer.html">Volunteer</a></li>
                         <li class="active">
-                            <a href="#">Adoptions</a>
+                            <a href="/adoptions.html">Adoptions</a>
                             <ul class="dropdown">
                                 <li><a href="/adopt.html">Adopt</a></li>
                                 <li><a href="№">Surrender</a></li>
@@ -162,16 +163,16 @@
 
     <div class="what-we-do blue-bg">
         <div class="container">
-            <div class="image-text-block image-text-block--reverce">
-                <div>
+            <div class="image-text-block image-text-block--reverse">
+                <div class="image-text-block__img">
                     <img src="img/adopting-info.png" alt="Adoption Info">
                 </div>
-                <div>
+                <div class="image-text-block__text">
                     <h2 class="green">Adoption Info</h2>
                     <p>
                         Learn more about adoption process and get answers to some of our frequently asked questions about adopting from Adopt a Golden Birmingham. 
                     </p>
-                    <a href="#" class="learn-more-link">Learn More</a>
+                    <a href="#" class="learn-more-link js-link-arrow-right">Learn More</a>
                 </div>
             </div>
         </div>
@@ -179,17 +180,19 @@
 
     <div class="recent-adoptions">
         <div class="container">
-            <h2 class="blue">Recent Adoptions</h2>
-            <div class="js-slider">
+            <h2 class="blue headline-star mobile-hidden">Recent Adoptions</h2>
+            <div class="js-slider recent-adoptions__slider mobile-hidden">
                 <div>
                     <div class="recent-adoptions__item">
                         <img src="img/recent-adoptions/slide1.png" alt="">
                         <div class="recent-adoptions__text">
-                            <h3 class="white headline-stripe">Hudson III</h3>
-                            <h5 class="white">
-                                Learn a little about his new family!
-                            </h5>
-                            <a href="#"><img src="img/icons/arrow-orange.svg" alt=""></a>
+                            <div>
+                                <h3 class="headline-stripe">Hudson III</h3>
+                                <p class="large">
+                                    Learn a little about his new family!
+                                </p>
+                                <a class="circle-arrow-link" href="#"><img src="img/icons/arrow-orange.svg" alt=""></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -197,11 +200,13 @@
                     <div class="recent-adoptions__item">
                         <img src="img/recent-adoptions/slide2.png" alt="">
                         <div class="recent-adoptions__text">
-                            <h3 class="white headline-stripe">Hudson III</h3>
-                            <h5 class="white">
-                                Learn a little about his new family!
-                            </h5>
-                            <a href="#"><img src="img/icons/arrow-orange.svg" alt=""></a>
+                            <div>
+                                <h3 class="headline-stripe">Hudson III</h3>
+                                <p class="large">
+                                    Learn a little about his new family!
+                                </p>
+                                <a class="circle-arrow-link" href="#"><img src="img/icons/arrow-orange.svg" alt=""></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -209,15 +214,34 @@
                     <div class="recent-adoptions__item">
                         <img src="img/recent-adoptions/slide3.png" alt="">
                         <div class="recent-adoptions__text">
-                            <h3 class="white headline-stripe">Hudson III</h3>
-                            <h5 class="white">
-                                Learn a little about his new family!
-                            </h5>
-                            <a href="#"><img src="img/icons/arrow-orange.svg" alt=""></a>
+                            <div>
+                                <h3 class="headline-stripe">Hudson III</h3>
+                                <p class="large">
+                                    Learn a little about his new family!
+                                </p>
+                                <a class="circle-arrow-link" href="#"><img src="img/icons/arrow-orange.svg" alt=""></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <div>
+                    <div class="recent-adoptions__item">
+                        <img src="img/recent-adoptions/slide2.png" alt="">
+                        <div class="recent-adoptions__text">
+                            <div>
+                                <h3 class="headline-stripe">Hudson III</h3>
+                                <p class="large">
+                                    Learn a little about his new family!
+                                </p>
+                                <a class="circle-arrow-link" href="#"><img src="img/icons/arrow-orange.svg" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <h3>
+                <a class="view-all-link js-link-arrow-right" href="/adoptions.html">View all recent adoptions</a>
+            </h3>
         </div>
     </div>
 
@@ -270,5 +294,9 @@
             </div>
         </div>
     </footer>
+
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script src="js/slick/slick.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
