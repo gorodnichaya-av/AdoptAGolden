@@ -1,17 +1,20 @@
 (function($){
 
-    // add arrows to nav items with children / link arrow
-    const arrowDown = document.createElement('span'),
-          arrowParent = document.querySelectorAll('.has-children');
-          
-    arrowDown.classList.add('dropdown-arrow');
-    arrowDown.innerHTML = `<svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M5.00911 5.72217C4.74529 5.72217 4.50126 5.63141 4.31329 5.46746L0.204307 1.81951C0.03942 1.67313 -0.0397257 1.45648 0.0196336 1.25739C0.191116 0.686486 0.900129 0.572305 1.28596 0.914849L4.93656 4.15584C4.97613 4.19097 5.04539 4.19097 5.08496 4.15584L8.71577 0.929487C9.1016 0.586944 9.80732 0.701125 9.9821 1.27203C10.0382 1.47404 9.95901 1.68777 9.79413 1.83415L5.70164 5.46746C5.51696 5.63141 5.26963 5.72217 5.00911 5.72217Z" fill="currentColor"/>
-    </svg>`;
-    arrowParent.forEach(elem => {
-        elem.firstElementChild.append(arrowDown.cloneNode(true));
-    });
+    window.addEventListener('load',function(){
+        // add arrows to nav items with children
+        const arrowDown = document.createElement('span'),
+              arrowParent = document.querySelectorAll('.has-children');
+        
+        arrowDown.classList.add('dropdown-arrow');
+        arrowDown.innerHTML = `<svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5.00911 5.72217C4.74529 5.72217 4.50126 5.63141 4.31329 5.46746L0.204307 1.81951C0.03942 1.67313 -0.0397257 1.45648 0.0196336 1.25739C0.191116 0.686486 0.900129 0.572305 1.28596 0.914849L4.93656 4.15584C4.97613 4.19097 5.04539 4.19097 5.08496 4.15584L8.71577 0.929487C9.1016 0.586944 9.80732 0.701125 9.9821 1.27203C10.0382 1.47404 9.95901 1.68777 9.79413 1.83415L5.70164 5.46746C5.51696 5.63141 5.26963 5.72217 5.00911 5.72217Z" fill="currentColor"/>
+        </svg>`;
+        arrowParent.forEach(elem => {
+            elem.firstElementChild.append(arrowDown.cloneNode(true));
+        });
 
+
+    // add arrow to the link with arrow
     const arrowRight = document.createElement('span'),
           arrowRightLink = document.querySelectorAll('.js-link-arrow-right');
 
@@ -27,26 +30,61 @@
     });
 
 
-    // show/hide dropdown
+    // show/hide dropdown on desktop
 
     const dropdownParent = document.querySelectorAll('.has-children');
 
     dropdownParent.forEach(elem => {
-        elem.addEventListener('mouseover', () => {
-           
+        console.log(elem)
+        elem.addEventListener('mouseenter', () => {
+            elem.querySelector('.dropdown').classList.add('showed');
+        });
+        elem.addEventListener('mouseleave', () => {
+            elem.querySelector('.dropdown').classList.remove('showed');
         });
     });
+
+
+    // show/hide dropdown on mobile
+
+    const menuMobileBtn = document.querySelector('.js-menu-btn'),
+          menuParent = document.querySelector('.js-menu'),
+          bodyElement = document.getElementsByTagName('body'),
+          subMenuParent = document.querySelectorAll('.has-children');
+
+    menuMobileBtn.addEventListener('click', () => {
+        menuMobileBtn.classList.toggle('opened');
+        menuParent.classList.toggle('opened');
+        bodyElement[0].classList.toggle('overflow');
+    });
+
+    /*subMenuParent.forEach(elem => {
+        console.dir(elem);
+        const dropdownHeight = elem.querySelector('.dropdown').clientHeight;
+        elem.querySelector('.dropdown').style.height = 0;
+        console.log(dropdownHeight);
+        elem.firstElementChild.addEventListener('click', () => {
+            console.log(elem.querySelector('.dropdown').style.height);
+            elem.classList.toggle('dropdown-opened');
+            elem.querySelector('.dropdown').style.height = (elem.querySelector('.dropdown').style.height === '0px') ? `${dropdownHeight}px` : `0px`;
+        });
+    });*/
+
+
 
     // add the same height of img in js-grid
 
     //const gridImgsParent = document.querySelector('.js-grid'), 
-          //gridImgsHeight = gridImgsParent.getElementsByTagName('img');
+        //gridImgsHeight = gridImgsParent.getElementsByTagName('img');
 
     //console.log(gridImgsHeight);
     /*gridImgsHeight.forEach(img => {
-        console.log(img);
-        console.log(img.clientHeight);
+    console.log(img);
+    console.log(img.clientHeight);
     });*/
+    });
+
+    
     
 
 
@@ -55,7 +93,8 @@
 
 
 
-    $(document).ready(function(){
+    $(document).ready(function(){ 
+
         // slick slider
         $('.js-slider').slick({
             arrow: true,
