@@ -18,14 +18,18 @@
                 <a href="/index.html" class="logo">
                     <img src="img/logo.svg" alt="Adopt a Golden">
                 </a>
+
+                <div class="js-menu-btn mobile-menu-btn">
+                    <span class="mobile-menu-btn__line"></span>
+                </div>
     
-                <div class="nav">
+                <div class="nav js-menu">
                     <ul>
                         <li><a href="/volunteer.html">Volunteer</a></li>
-                        <li class="active">
+                        <li class="has-children">
                             <a href="/adoptions.html">Adoptions</a>
                             <ul class="dropdown">
-                                <li><a href="/adopt.html">Adopt</a></li>
+                                <li class="active"><a href="/adopt.html">Adopt</a></li>
                                 <li><a href="№">Surrender</a></li>
                                 <li><a href="#">Adopted</a></li>
                                 <li><a href="#">Goldens</a></li>
@@ -77,11 +81,13 @@
                             forever. If you think we would be a good match, 
                             let AGB know you want to meet me.
                         </p>
-                        <a href="#" class="button">Apply Now</a>
+                        <div class="individual-info__button">
+                            <a href="#" class="button">Apply Now</a>
+                        </div>
                     </div>
                 </div>
     
-                <div class="recent-adoptions">
+                <div class="recent-adoptions recent-adoptions--individual-photo">
                     <h3 class="blue">More Photos of Butter II</h3>
                     <div class="js-slider individual-gallery">
                         <div>

@@ -14,84 +14,92 @@
         });
 
 
-    // add arrow to the link with arrow
-    const arrowRight = document.createElement('span'),
-          arrowRightLink = document.querySelectorAll('.js-link-arrow-right');
+        // add arrow to the link with arrow
+        const arrowRight = document.createElement('span'),
+            arrowRightLink = document.querySelectorAll('.js-link-arrow-right');
 
-    arrowRight.classList.add('right-arrow');
-    arrowRight.innerHTML = `<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="1.5" y="1.5" width="22" height="22" rx="11" stroke="currentColor" stroke-width="3"/>
-    <path d="M16.25 12.7009L7.5 12.7009" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M18.4663 13.5945L18.4663 13.5945L18.4678 13.5929C18.7067 13.3519 18.8413 13.0352 18.8413 12.693C18.8413 12.355 18.7072 12.0338 18.4663 11.7949L14.1723 7.53666C13.9441 7.31032 13.6044 7.19467 13.2726 7.27573L13.2726 7.27566L13.2669 7.2772C12.405 7.50953 12.2102 8.47736 12.7511 9.01372L12.7512 9.0138L16.4629 12.6913L12.7338 16.3894C12.1939 16.9248 12.3863 17.8976 13.2508 18.1262L13.2512 18.1263C13.5821 18.2132 13.9269 18.0961 14.155 17.8699L18.4663 13.5945Z" fill="currentColor" stroke="currentColor" stroke-width="0.5"/>
-    </svg>`;
+        arrowRight.classList.add('right-arrow');
+        arrowRight.innerHTML = `<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1.5" y="1.5" width="22" height="22" rx="11" stroke="currentColor" stroke-width="3"/>
+        <path d="M16.25 12.7009L7.5 12.7009" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M18.4663 13.5945L18.4663 13.5945L18.4678 13.5929C18.7067 13.3519 18.8413 13.0352 18.8413 12.693C18.8413 12.355 18.7072 12.0338 18.4663 11.7949L14.1723 7.53666C13.9441 7.31032 13.6044 7.19467 13.2726 7.27573L13.2726 7.27566L13.2669 7.2772C12.405 7.50953 12.2102 8.47736 12.7511 9.01372L12.7512 9.0138L16.4629 12.6913L12.7338 16.3894C12.1939 16.9248 12.3863 17.8976 13.2508 18.1262L13.2512 18.1263C13.5821 18.2132 13.9269 18.0961 14.155 17.8699L18.4663 13.5945Z" fill="currentColor" stroke="currentColor" stroke-width="0.5"/>
+        </svg>`;
 
-    arrowRightLink.forEach(elem => {
-        elem.appendChild(arrowRight.cloneNode(true));
-    });
-
-
-    // show/hide dropdown on desktop
-
-    const dropdownParent = document.querySelectorAll('.has-children');
-
-    dropdownParent.forEach(elem => {
-        console.log(elem)
-        elem.addEventListener('mouseenter', () => {
-            elem.querySelector('.dropdown').classList.add('showed');
+        arrowRightLink.forEach(elem => {
+            elem.appendChild(arrowRight.cloneNode(true));
         });
-        elem.addEventListener('mouseleave', () => {
-            elem.querySelector('.dropdown').classList.remove('showed');
+
+
+        // show/hide dropdown on desktop
+
+        const dropdownParent = document.querySelectorAll('.has-children'),
+            dropdownMenu = this.document.querySelectorAll('.dropdown');
+
+        dropdownParent.forEach(elem => {
+            elem.addEventListener('mouseenter', () => {
+                elem.querySelector('.dropdown').classList.add('showed');
+            });
         });
-    });
-
-
-    // show/hide dropdown on mobile
-
-    const menuMobileBtn = document.querySelector('.js-menu-btn'),
-          menuParent = document.querySelector('.js-menu'),
-          bodyElement = document.getElementsByTagName('body'),
-          subMenuParent = document.querySelectorAll('.has-children');
-
-    menuMobileBtn.addEventListener('click', () => {
-        menuMobileBtn.classList.toggle('opened');
-        menuParent.classList.toggle('opened');
-        bodyElement[0].classList.toggle('overflow');
-    });
-
-    /*subMenuParent.forEach(elem => {
-        console.dir(elem);
-        const dropdownHeight = elem.querySelector('.dropdown').clientHeight;
-        elem.querySelector('.dropdown').style.height = 0;
-        console.log(dropdownHeight);
-        elem.firstElementChild.addEventListener('click', () => {
-            console.log(elem.querySelector('.dropdown').style.height);
-            elem.classList.toggle('dropdown-opened');
-            elem.querySelector('.dropdown').style.height = (elem.querySelector('.dropdown').style.height === '0px') ? `${dropdownHeight}px` : `0px`;
+        dropdownMenu.forEach(elem => {
+            elem.addEventListener('mouseleave', () => {
+                elem.classList.remove('showed');
+            });
         });
-    });*/
+
+
+        // show/hide dropdown on mobile
+
+        const menuMobileBtn = document.querySelector('.js-menu-btn'),
+            menuParent = document.querySelector('.js-menu'),
+            bodyElement = document.getElementsByTagName('body'),
+            subMenuParent = document.querySelectorAll('.has-children');
+
+        menuMobileBtn.addEventListener('click', () => {
+            menuMobileBtn.classList.toggle('opened');
+            menuParent.classList.toggle('opened');
+            bodyElement[0].classList.toggle('overflow');
+        });
+
+        /*subMenuParent.forEach(elem => {
+            console.dir(elem);
+            const dropdownHeight = elem.querySelector('.dropdown').clientHeight;
+            elem.querySelector('.dropdown').style.height = 0;
+            console.log(dropdownHeight);
+            elem.firstElementChild.addEventListener('click', () => {
+                console.log(elem.querySelector('.dropdown').style.height);
+                elem.classList.toggle('dropdown-opened');
+                elem.querySelector('.dropdown').style.height = (elem.querySelector('.dropdown').style.height === '0px') ? `${dropdownHeight}px` : `0px`;
+            });
+        });*/
 
 
 
-    // add the same height of img in js-grid
+        // add the same height of img in js-grid
+        if (document.querySelectorAll('.js-grid').length > 0) {
+            const gridImgsParent = document.querySelector('.js-grid'), 
+                gridImgsHeight = gridImgsParent.querySelectorAll('.grid-columns__img');
 
-    //const gridImgsParent = document.querySelector('.js-grid'), 
-        //gridImgsHeight = gridImgsParent.getElementsByTagName('img');
+            let heightArray = [],
+                maxHeight = 0;
 
-    //console.log(gridImgsHeight);
-    /*gridImgsHeight.forEach(img => {
-    console.log(img);
-    console.log(img.clientHeight);
-    });*/
+            function getMaxOfArray(numArray) {
+                return Math.max.apply(null, numArray);
+            }
+
+            gridImgsHeight.forEach(img => {
+                heightArray.push(img.clientHeight);
+            });
+            maxHeight = getMaxOfArray(heightArray);
+            gridImgsHeight.forEach(img => {
+                img.style.height = `${maxHeight}px`;
+            });
+        }
+        
+
     });
 
     
     
-
-
-
-
-
-
 
     $(document).ready(function(){ 
 
@@ -113,7 +121,8 @@
                     breakpoint: 639,
                     settings: {
                       slidesToShow: 1,
-                      slidesToScroll: 1
+                      slidesToScroll: 1,
+                      dots: true
                     }
                 }
             ]
