@@ -94,40 +94,38 @@
                 img.style.height = `${maxHeight}px`;
             });
         }
-        
-
     });
-
     
-    
-
-    $(document).ready(function(){ 
-
-        // slick slider
-        $('.js-slider').slick({
-            arrow: true,
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            responsive: [
-                {
-                    breakpoint: 991,
-                    settings: {
-                      slidesToShow: 2,
-                      slidesToScroll: 1
+    $(document).ready(function(){   
+        // slick slider  
+        $('.js-slider').imagesLoaded(sliders => {
+            // remove your hiding class
+            $('.js-slider').removeClass('hidden');
+            // initialise slick
+            $('.js-slider').slick({
+                arrow: true,
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                responsive: [
+                    {
+                        breakpoint: 991,
+                        settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 639,
+                        settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        dots: true
+                        }
                     }
-                },
-                {
-                    breakpoint: 639,
-                    settings: {
-                      slidesToShow: 1,
-                      slidesToScroll: 1,
-                      dots: true
-                    }
-                }
-            ]
-        });
-
+                ]
+            });
+        }); 
         // Accordion
         $('.js-accordion').on('click', '.js-accordion-btn', function(){
             let parent = $(this).parent();
