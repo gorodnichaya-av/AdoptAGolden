@@ -5,7 +5,7 @@
         const arrowDown = document.createElement('span'),
               arrowParent = document.querySelectorAll('.has-children');
         
-        arrowDown.classList.add('dropdown-arrow');
+        arrowDown.classList.add('dropdown-arrow', 'js-dropdown-arrow');
         arrowDown.innerHTML = `<svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M5.00911 5.72217C4.74529 5.72217 4.50126 5.63141 4.31329 5.46746L0.204307 1.81951C0.03942 1.67313 -0.0397257 1.45648 0.0196336 1.25739C0.191116 0.686486 0.900129 0.572305 1.28596 0.914849L4.93656 4.15584C4.97613 4.19097 5.04539 4.19097 5.08496 4.15584L8.71577 0.929487C9.1016 0.586944 9.80732 0.701125 9.9821 1.27203C10.0382 1.47404 9.95901 1.68777 9.79413 1.83415L5.70164 5.46746C5.51696 5.63141 5.26963 5.72217 5.00911 5.72217Z" fill="currentColor"/>
         </svg>`;
@@ -30,49 +30,77 @@
         });
 
 
-        // show/hide dropdown on desktop
+        
+        if (device.desktop()) {
+            // show/hide dropdown on desktop
 
-        const dropdownParent = document.querySelectorAll('.has-children'),
-            dropdownMenu = this.document.querySelectorAll('.dropdown');
+            const dropdownParent = document.querySelectorAll('.has-children'),
+                  dropdownMenu = this.document.querySelectorAll('.dropdown');
 
-        dropdownParent.forEach(elem => {
-            elem.addEventListener('mouseenter', () => {
-                elem.querySelector('.dropdown').classList.add('showed');
+            dropdownParent.forEach(elem => {
+                elem.addEventListener('mouseenter', (event) => {
+                    elem.querySelector('.dropdown').classList.add('showed');
+                });
             });
-        });
-        dropdownMenu.forEach(elem => {
-            elem.addEventListener('mouseleave', () => {
-                elem.classList.remove('showed');
+            dropdownParent.forEach(elem => {
+                elem.addEventListener('mouseleave', (event) => {
+                    elem.querySelector('.dropdown').classList.remove('showed');
+                });
             });
-        });
+        } else if (device.tablet()) {
+            // show/hide dropdown on tablet
 
-
-        // show/hide dropdown on mobile
-
-        const menuMobileBtn = document.querySelector('.js-menu-btn'),
-            menuParent = document.querySelector('.js-menu'),
-            bodyElement = document.getElementsByTagName('body'),
-            subMenuParent = document.querySelectorAll('.has-children');
-
-        menuMobileBtn.addEventListener('click', () => {
-            menuMobileBtn.classList.toggle('opened');
-            menuParent.classList.toggle('opened');
-            bodyElement[0].classList.toggle('overflow');
-        });
-
-        /*subMenuParent.forEach(elem => {
-            console.dir(elem);
-            const dropdownHeight = elem.querySelector('.dropdown').clientHeight;
-            elem.querySelector('.dropdown').style.height = 0;
-            console.log(dropdownHeight);
-            elem.firstElementChild.addEventListener('click', () => {
-                console.log(elem.querySelector('.dropdown').style.height);
-                elem.classList.toggle('dropdown-opened');
-                elem.querySelector('.dropdown').style.height = (elem.querySelector('.dropdown').style.height === '0px') ? `${dropdownHeight}px` : `0px`;
+            const dropdownParent = document.querySelectorAll('.has-children'),
+                  dropdownMenu = this.document.querySelectorAll('.dropdown');
+            let clickCounter = 0;
+            dropdownParent.forEach(elem => {
+                
+                elem.addEventListener('click', (e) => {
+                    clickCounter++;
+                    if (clickCounter == 1) {
+                        e.preventDefault();
+                        elem.querySelector('.dropdown').classList.add('showed');
+                    }
+                    
+                });
             });
-        });*/
+            dropdownMenu.forEach(elem => {
+                document.addEventListener('mouseup', function(e) {
+                    if (!elem.contains(e.target)) {
+                        elem.classList.remove('showed');
+                    }
+                }); 
+            });
+            
+        } else {
+            // show/hide dropdown on mobile
 
+            const menuMobileBtn = document.querySelector('.js-menu-btn'),
+                  menuParent = document.querySelector('.js-menu'),
+                  bodyElement = document.getElementsByTagName('body'),
+                  subMenuParent = document.querySelectorAll('.has-children');
 
+            menuMobileBtn.addEventListener('click', () => {
+                menuMobileBtn.classList.toggle('opened');
+                menuParent.classList.toggle('opened');
+                bodyElement[0].classList.toggle('overflow');
+            });
+
+            subMenuParent.forEach(elem => {
+                const dropdownElement = elem.querySelectorAll('.dropdown');
+                if(dropdownElement.length > 0) {
+                    const dropdownHeight = elem.querySelector('.dropdown').clientHeight;
+                    elem.querySelector('.dropdown').style.height = 0;
+                    elem.querySelector('.js-dropdown-arrow').addEventListener('click', (e) => {
+                        e.preventDefault();
+                        elem.classList.toggle('dropdown-opened');
+                        elem.querySelector('.dropdown').style.height = (elem.querySelector('.dropdown').style.height === '0px') ? `${dropdownHeight}px` : `0px`;
+                    });
+                }
+                
+            });
+        }
+        
 
         // add the same height of img in js-grid
         if (document.querySelectorAll('.js-grid').length > 0) {
